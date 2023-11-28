@@ -84,7 +84,10 @@ df_agg_diff = df_agg.copy()
 
 # we are using a 12 months time window 
 metric_data_12mo= df_agg_diff['Video publish time'].max() - pd.DateOffset(months = 12)
-median_agg = df_agg_diff[df_agg_diff['Video publish time'] >= metric_data_12mo].median()
+# median_agg = df_agg_diff[df_agg_diff['Video publish time'] >= metric_data_12mo].median()
+filtered_df = df_agg_diff[df_agg_diff['Video publish time'] >= metric_data_12mo]
+median_agg = filtered_df.median()
+
 
 # create differences in median for values
 numeric_cols = np.array((df_agg_diff.dtypes == 'float64') | (df_agg_diff.dtypes == 'int64'))
