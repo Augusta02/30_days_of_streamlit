@@ -71,7 +71,7 @@ def load_data():
 
     df_comments = pd.read_csv('YT__Dashboard/Aggregated_Metrics_By_Video.csv')
     df_time = pd.read_csv('YT__Dashboard/Video_Performance_Over_Time.csv')
-    df_time['Date'] = pd.to_datetime(df_time['Date'])
+    df_time['Date'] = pd.to_datetime(df_time['Date'], format='%d %b %Y', errors='coerce')
 
     return df_agg, df_agg_sub, df_comments, df_time
 # create dataframe from function
