@@ -55,7 +55,7 @@ def load_data():
     'Subscribers gained', 'RPM (USD)', 'CPM (USD)', 'Average % viewed', 'Average view duration', 'Views', 'Watch time (hours)',
     'Subscribers', 'Your estimated revenue (USD)', 'Impressions', 'Impressions click-through rate (%)']
 
-    df_agg['Video publish time'] = pd.to_datetime(df_agg['Video publish time'])
+    df_agg['Video publish time'] = pd.to_datetime(df_agg['Video publish time'], format='%b %d, %Y', errors='coerce')
     df_agg['Average view duration'] = df_agg['Average view duration'].apply(lambda x: datetime.strptime(x, '%H:%M:%S'))
     df_agg['Average view duration']
 
